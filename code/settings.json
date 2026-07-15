@@ -1,0 +1,75 @@
+{
+  // =========================
+  // ======= VIM OPTS ========
+  // ========================
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<Esc>"],
+      "when": ["editorFocus"],
+      "commands": [":nohl"],
+      "silent": true,
+    },
+  ],
+  "vim.visualModeKeyBindings": [
+    {
+      "before": ["p"],
+      "after": ["P"],
+    },
+  ],
+  "vim.handleKeys": {
+    // "<C-a>": false,
+    "<C-f>": false,
+  },
+  "vim.incsearch": true,
+  "vim.searchHighlightColor": "#f6ff0080",
+  "vim.searchHighlightTextColor": "#fff",
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.highlightedyank.enable": true,
+  "vim.smartRelativeLine": true,
+  "vim.surround": true,
+  "vim.easymotion": true,
+  
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 1,
+  },
+ 
+  // ======================
+  // ======= THEME ========
+  // ======================
+  "breadcrumbs.symbolPath": "off",
+  "breadcrumbs.icons": false,
+  "window.title": " ",
+  "workbench.tips.enabled": false,
+  "editor.scrollbar.verticalScrollbarSize": 12,
+  "editor.cursorBlinking": "solid",
+  "editor.fontSize": 23,
+  "editor.lineHeight": 28,
+  "terminal.integrated.fontSize": 15,
+  "terminal.integrated.minimumContrastRatio": 1,
+  "zenMode.hideStatusBar": false,
+  "window.density.editorTabHeight": "compact",
+  "workbench.editor.showTabs": "multiple",
+  "zenMode.fullScreen": true,
+  "zenMode.hideLineNumbers": false,
+  "workbench.startupEditor": "welcomePageInEmptyWorkbench",
+  "breadcrumbs.enabled": true,
+  "window.restoreWindows": "none",
+  "explorer.autoReveal": false,
+ 
+  "editor.fontFamily": "'Iosevka Nerd Font', 'Iosevka NF', monospace",
+  "editor.fontLigatures": true,
+  "terminal.integrated.fontFamily": "'Iosevka Nerd Font', 'Iosevka NF'",
+  "chat.viewSessions.orientation": "stacked",
+  "editor.minimap.enabled": false,
+  "editor.lineNumbers": "relative",
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "workbench.colorTheme": "Visual Studio 2017 Dark - C++",
+
+}
