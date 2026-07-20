@@ -1,0 +1,74 @@
+general {
+        colors = true
+        interval = 5
+}
+
+# order += "ipv6"
+order += "wireless _first_"
+order += "ethernet _first_"
+order += "path_exists vpn"
+order += "volume master"
+order += "battery all"
+order += "read_file cpu_temp"
+order += "cpu_temperature 0"
+order += "disk /"
+order += "load"
+order += "memory"
+order += "tztime local"
+
+
+volume master {
+        format = "aud: %volume"
+        format_muted = "muted (%volume)"
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
+}
+
+wireless _first_ {
+        format_up = "W: (%quality at %essid)"
+       #format_up = "W: (%quality at %essid) %ip"
+        format_down = "W: down"
+}
+
+ethernet _first_ {
+        format_up = "E: %ip (%speed)"
+        format_down = "E: down"
+}
+
+cpu_temperature 0 {
+    format = "tmp: %degrees °C"
+    path = "/sys/class/hwmon/hwmon4/temp1_input"
+}
+
+
+battery all {
+        format = "%status %percentage"
+        last_full_capacity = true
+}
+
+disk "/" {
+        format = "disk: %used | %free"
+}
+
+load {
+        format = "cpu: %1min"
+}
+
+read_file gpu {
+  path = "/tmp/gpu_usage"
+}
+
+memory {
+        format = "ram: %used"
+        threshold_degraded = "1G"
+        format_degraded = "MEMORY < %available"
+}
+
+
+tztime local {
+        format = "%Y-%m-%d %H:%M:%S"
+}
+
+
+
