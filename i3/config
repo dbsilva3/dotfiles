@@ -192,7 +192,7 @@ for_window [title="calc"] floating enable
 
 bindsym Print exec flameshot gui
 
-bindsym Shift+Print exec ~/scripts/capture_ocr.sh
+bindsym Shift+Print exec ~/.scripts/capture_ocr.sh
 
 bindsym $alt+Tab exec --no-startup-id rofi -show window
 
