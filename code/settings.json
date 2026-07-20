@@ -1,7 +1,4 @@
 {
-  // =========================
-  // ======= VIM OPTS ========
-  // ========================
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["<Esc>"],
@@ -17,9 +14,9 @@
     },
   ],
   "vim.handleKeys": {
-    // "<C-a>": false,
     "<C-f>": false,
   },
+
   "vim.incsearch": true,
   "vim.searchHighlightColor": "#f6ff0080",
   "vim.searchHighlightTextColor": "#fff",
@@ -31,13 +28,10 @@
   "vim.surround": true,
   "vim.easymotion": true,
   
+
   "extensions.experimental.affinity": {
     "vscodevim.vim": 1,
   },
- 
-  // ======================
-  // ======= THEME ========
-  // ======================
   "breadcrumbs.symbolPath": "off",
   "breadcrumbs.icons": false,
   "window.title": " ",
@@ -70,6 +64,4 @@
     "markdown": false,
     "scminput": false
   },
-  "workbench.colorTheme": "Visual Studio 2017 Dark - C++",
-
 }
