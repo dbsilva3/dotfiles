@@ -1,25 +1,28 @@
 vim.g.mapleader = " "
 
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.signcolumn = "yes"
-vim.o.tabstop = 4
 vim.o.shiftwidth = 4
-vim.opt.cursorcolumn = false
-
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.undofile = true
+vim.o.autoread = true
+vim.o.laststatus = 3
+	
+vim.keymap.set("n", "<leader>w", ":w<cr>", { silent = true })
+vim.keymap.set("n", "<leader>q", ":q<cr>", { silent = true })
 vim.keymap.set({ 'n', 'v', 'x' }, '<leader>y', '"+y<CR>')
 vim.keymap.set({ 'n', 'v', 'x' }, '<leader>p', '"+p<CR>')
 
-if vim.g.vscode then
-    local vscode = require('vscode')
-    
-    vim.keymap.set('n', '<leader>e', function() 
-        vscode.action('workbench.view.explorer') 
-    end)
+vim.keymap.set('i', '<C-h>', '<Left>')
+vim.keymap.set('i', '<C-j>', '<Down>')
+vim.keymap.set('i', '<C-k>', '<Up>')
+vim.keymap.set('i', '<C-l>', '<Right>')
+
+vim.keymap.set("n", "<leader>e", ":Lexplore<cr>", { silent = true })
 
 
-else
-    vim.keymap.set('n', '<leader>e', ':Lex<CR>')
-    vim.keymap.set({ 'n', 'v', 'x' }, '<leader>o', ':source<CR> :update<CR>')
-    vim.keymap.set({ 'n', 'v', 'x' }, '<leader>r', ':e<CR>') 
-end
+

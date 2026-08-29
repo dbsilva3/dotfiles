@@ -1,7 +1,7 @@
 set $mod Mod4
 set $alt Mod1
 
-font pango:Iosevka Nerd Font Mono Medium 10
+font pango:monospace 8
 
 exec --no-startup-id redshift
 exec --no-startup-id xset -b
@@ -10,14 +10,13 @@ exec --no-startup-id xset r rate 200 35
 exec --no-startup-id picom --config ~/.config/picom/picom.conf
 exec --no-startup-id setxkbmap -model abnt2 -layout br -variant abnt2
 exec --no-startup-id dunst
+exec --no-startup-id redshift -P -O 4000
+
 
 # Atalhos de vídeo (HDMI)
 bindsym $mod+Shift+m exec xrandr --output HDMI-A-0 --same-as eDP --auto
 bindsym $mod+Shift+v exec xrandr --output HDMI-A-0 --right-of eDP --auto
 bindsym $mod+Shift+x exec xrandr --output HDMI-A-0 --off
-
-# Papel de parede
-exec --no-startup-id feh --bg-scale ~/wallpapers/nature.jpg
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -47,10 +46,12 @@ bindsym $mod+Tab scratchpad show
 # kill focused window
 bindsym $mod+q kill
 
-#menu
-# bindsym $Mod+d exec --no-startup-id j4-dmenu-desktop --dmenu="dmenu -i  -fn 'Iosevka Nerd Font Mono:size=10'"
+# Luz noturna (toggle com redshift)
 
-bindsym $mod+d exec --no-startup-id "rofi -show combi"
+#menu
+#bindsym $mod+d exec --no-startup-id dmenu_run
+
+bindsym $mod+d exec --no-startup-id "rofi -show drun"
 
 set $up k
 set $down j
@@ -139,32 +140,19 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec i3-msg exit
 
-# launch obsidian
-bindsym $mod+Shift+o exec flatpak run md.obsidian.Obsidian
-
-# launch zapzap
-bindsym $mod+Shift+z exec flatpak run com.rtosta.zapzap
-
-# launch firefox
-bindsym $mod+Shift+w exec firefox
-
-# launch bluetooth
-bindsym $mod+Shift+b exec blueman-manager
 
 # launch files
 bindsym $mod+Shift+f exec thunar
 
 # start a terminal
-bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec i3-sensible-terminal
 
 # floating terminal
-bindsym $mod+Shift+Return exec xfce4-terminal --title="floating_term"
+bindsym $mod+Shift+Return exec i3-sensible-terminal --title="floating_term"
 
 # python
-bindsym $mod+Shift+p exec --no-startup-id xfce4-terminal --title="calc" -e python
+bindsym $mod+Shift+p exec --no-startup-id i3-sensible-terminal --title="calc" -e python
 
-# python com tmux    -- em teste
-# bindsym $mod+Shift+p exec --no-startup-id alacritty -e tmux new-session -A -s calc python
 
 bindsym $mod+r mode "resize"
 mode "resize" {
@@ -185,31 +173,19 @@ mode "resize" {
 for_window [title="floating_term"] floating enable
 for_window [class="Thunar"] floating enable
 for_window [class="Blueman-manager"] floating enable
-for_window [title="Asteroides"] floating enable
 for_window [class="org.gnome.FileRoller"] floating enable
 for_window [title="calc"] floating enable
 
 
 bindsym Print exec flameshot gui
 
-bindsym Shift+Print exec ~/.scripts/capture_ocr.sh
-
 bindsym $alt+Tab exec --no-startup-id rofi -show window
 
 bindsym $alt+l exec i3lock --nofork --show-failed-attempts -i ~/wallpapers/173801.png
 
-bindsym $alt+Shift+w exec sh -c 'pgrep -x nm-applet >/dev/null && pkill -x nm-applet || nm-applet'
-
-bindsym $alt+Shift+b exec sh -c 'pgrep -x blueman-applet >/dev/null && pkill -x blueman-applet || blueman-applet'
-
 bindsym $alt+z exec boomer
 
-
-default_border pixel 3
-default_floating_border pixel 3
-#
 smart_borders on
-
 
 bar {
     status_command i3status
@@ -218,3 +194,4 @@ bar {
 
 focus_follows_mouse yes
 hide_edge_borders both
+
